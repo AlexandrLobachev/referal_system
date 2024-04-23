@@ -1,0 +1,1096 @@
+{
+	"info": {
+		"_postman_id": "dbb67020-ef97-4133-9a62-4a4181f00db6",
+		"name": "Referal_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31278634"
+	},
+	"item": [
+		{
+			"name": "get_code",
+			"item": [
+				{
+					"name": "get_first_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{firstUser_phone}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/signup/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_second_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{secondUser_phone}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/signup/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_third_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{thirdUser_phone}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/signup/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_four_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{fourUser_phone}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/signup/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_tokens",
+			"item": [
+				{
+					"name": "get_token_for_first_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(\r",
+									"        pm.response.status,\r",
+									"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"\r",
+									"    ).to.be.eql(\"OK\");\r",
+									"});\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    const auth_token = _.get(responseData, \"token\");\r",
+									"    if (auth_token) {\r",
+									"        pm.collectionVariables.set(\"firstUserToken\", auth_token);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{firstUser_phone}}\",\r\n    \"confirmation_code\": \"{{confirmation_code}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(\r",
+									"        pm.response.status,\r",
+									"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"\r",
+									"    ).to.be.eql(\"OK\");\r",
+									"});\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    const auth_token = _.get(responseData, \"token\");\r",
+									"    if (auth_token) {\r",
+									"        pm.collectionVariables.set(\"secondUserToken\", auth_token);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{secondUser_phone}}\",\r\n    \"confirmation_code\": \"{{confirmation_code}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_third_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(\r",
+									"        pm.response.status,\r",
+									"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"\r",
+									"    ).to.be.eql(\"OK\");\r",
+									"});\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    const auth_token = _.get(responseData, \"token\");\r",
+									"    if (auth_token) {\r",
+									"        pm.collectionVariables.set(\"thirdUserToken\", auth_token);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{thirdUser_phone}}\",\r\n    \"confirmation_code\": \"{{confirmation_code}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_four_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(\r",
+									"        pm.response.status,\r",
+									"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"\r",
+									"    ).to.be.eql(\"OK\");\r",
+									"});\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    const auth_token = _.get(responseData, \"token\");\r",
+									"    if (auth_token) {\r",
+									"        pm.collectionVariables.set(\"fourUserToken\", auth_token);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"{{fourUser_phone}}\",\r\n    \"confirmation_code\": \"{{confirmation_code}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_invite_code",
+			"item": [
+				{
+					"name": "get_first_user_invite_cod",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"const responseSchema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: { type: 'number' },\r",
+									"        username: { type: 'string' },\r",
+									"        phone_number: { type: 'string' },\r",
+									"        invite_code: { type: 'string' },\r",
+									"        other_invite_code: {\r",
+									"            anyOf: [\r",
+									"                { type: 'null' }, \r",
+									"                { type: 'string' }\r",
+									"                ]},\r",
+									"        users_with_my_invite: {\r",
+									"            type: 'array',\r",
+									"            minItems: 0,\r",
+									"            items: {\r",
+									"            type: 'object',\r",
+									"            properties: { phone_number: { type: 'string' } },\r",
+									"            required: ['phone_number'],\r",
+									"            additionalProperties: false\r",
+									"            }\r",
+									"        }\r",
+									"    },\r",
+									"    required: ['id', 'username', 'phone_number', 'invite_code', 'other_invite_code', 'users_with_my_invite'],\r",
+									"    additionalProperties: false\r",
+									"};\r",
+									"\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchema);\r",
+									"    const invite_code = _.get(responseData, \"invite_code\");\r",
+									"    if (invite_code) {\r",
+									"        pm.collectionVariables.set(\"firstUserInviteCode\", invite_code);\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{firstUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "add_referals",
+			"item": [
+				{
+					"name": "second_user_refer_to_first",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response body structure is valid\", function () {",
+									"    const responseSchema = {",
+									"        type: 'object',",
+									"        properties: {",
+									"            id: { type: 'number' },",
+									"            username: { type: 'string' },",
+									"            phone_number: { type: 'string' },",
+									"            invite_code: { type: 'string' },",
+									"            other_invite_code: {anyOf: [{ type: 'null' }, { type: 'string' }]},",
+									"            users_with_my_invite: {",
+									"                type: 'array',",
+									"                minItems: 0,",
+									"                items: {",
+									"                    type: 'object',",
+									"                    properties: { phone_number: { type: 'string' } },",
+									"                    required: ['phone_number'],",
+									"                    additionalProperties: false",
+									"                }",
+									"            }",
+									"        },",
+									"        required: ['id', 'username', 'phone_number', 'invite_code', 'other_invite_code', 'users_with_my_invite'],",
+									"        additionalProperties: false",
+									"    };",
+									"    ",
+									"    pm.expect(pm.response.json()).to.have.jsonSchema(responseSchema); ",
+									"});",
+									"",
+									"pm.test(\"Тело ответа должно содержать чужой invite-code.\", function () {",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"firstUserInviteCode\"));",
+									"});",
+									"",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{secondUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"{{firstUserInviteCode}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "third_user_refer_to_first",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response body structure is valid\", function () {",
+									"    const responseSchema = {",
+									"        type: 'object',",
+									"        properties: {",
+									"            id: { type: 'number' },",
+									"            username: { type: 'string' },",
+									"            phone_number: { type: 'string' },",
+									"            invite_code: { type: 'string' },",
+									"            other_invite_code: {anyOf: [{ type: 'null' }, { type: 'string' }]},",
+									"            users_with_my_invite: {",
+									"                type: 'array',",
+									"                minItems: 0,",
+									"                items: {",
+									"                    type: 'object',",
+									"                    properties: { phone_number: { type: 'string' } },",
+									"                    required: ['phone_number'],",
+									"                    additionalProperties: false",
+									"                }",
+									"            }",
+									"        },",
+									"        required: ['id', 'username', 'phone_number', 'invite_code', 'other_invite_code', 'users_with_my_invite'],",
+									"        additionalProperties: false",
+									"    };",
+									"    ",
+									"    pm.expect(pm.response.json()).to.have.jsonSchema(responseSchema); ",
+									"});",
+									"",
+									"pm.test(\"Тело ответа должно содержать чужой invite-code.\", function () {",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"firstUserInviteCode\"));",
+									"});",
+									"",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{thirdUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"{{firstUserInviteCode}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get_profile",
+			"item": [
+				{
+					"name": "get_first_user_profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"    const responseSchema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: { type: 'number' },\r",
+									"        username: { type: 'string' },\r",
+									"        phone_number: { type: 'string' },\r",
+									"        invite_code: { type: 'string' },\r",
+									"        other_invite_code: {\r",
+									"            anyOf: [\r",
+									"                { type: 'null' }, \r",
+									"                { type: 'string' }\r",
+									"                ]},\r",
+									"        users_with_my_invite: {\r",
+									"            type: 'array',\r",
+									"            minItems: 0,\r",
+									"            items: {\r",
+									"            type: 'object',\r",
+									"            properties: { phone_number: { type: 'string' } },\r",
+									"            required: ['phone_number'],\r",
+									"            additionalProperties: false\r",
+									"            }\r",
+									"        }\r",
+									"    },\r",
+									"    required: ['id', 'username', 'phone_number', 'invite_code', 'other_invite_code', 'users_with_my_invite'],\r",
+									"    additionalProperties: false\r",
+									"};\r",
+									"\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"secondUser_phone\"));\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"thirdUser_phone\"));\r",
+									"    pm.expect(pm.response.text()).to.not.include(pm.collectionVariables.get(\"fourUser_phone\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{firstUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_second_user_profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();\r",
+									"    const responseSchema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: { type: 'number' },\r",
+									"        username: { type: 'string' },\r",
+									"        phone_number: { type: 'string' },\r",
+									"        invite_code: { type: 'string' },\r",
+									"        other_invite_code: {\r",
+									"            anyOf: [\r",
+									"                { type: 'null' }, \r",
+									"                { type: 'string' }\r",
+									"                ]},\r",
+									"        users_with_my_invite: {\r",
+									"            type: 'array',\r",
+									"            minItems: 0,\r",
+									"            items: {\r",
+									"            type: 'object',\r",
+									"            properties: { phone_number: { type: 'string' } },\r",
+									"            required: ['phone_number'],\r",
+									"            additionalProperties: false\r",
+									"            }\r",
+									"        }\r",
+									"    },\r",
+									"    required: ['id', 'username', 'phone_number', 'invite_code', 'other_invite_code', 'users_with_my_invite'],\r",
+									"    additionalProperties: false\r",
+									"};\r",
+									"\r",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {\r",
+									"    pm.response.to.have.jsonSchema(responseSchema);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"secondUser_phone\"));\r",
+									"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"thirdUser_phone\"));\r",
+									"    pm.expect(pm.response.text()).to.not.include(pm.collectionVariables.get(\"fourUser_phone\"));\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Статус-код ответа должен быть 200\", function () {\r",
+									"    pm.expect(pm.response.status).to.be.eql(\"OK\");\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{firstUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bad_requests",
+			"item": [
+				{
+					"name": "change_refer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа должен быть 400\", function () {",
+									"    pm.expect(",
+									"        pm.response.status,",
+									"        \"Запрос должен вернуть ответ со статус-кодом 400\"",
+									"    ).to.be.eql(\"Bad Request\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{secondUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"{{firstUserInviteCode}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refer_to_yourself",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа должен быть 400\", function () {",
+									"    pm.expect(",
+									"        pm.response.status,",
+									"        \"Запрос должен вернуть ответ со статус-кодом 400\"",
+									"    ).to.be.eql(\"Bad Request\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{firstUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"{{firstUserInviteCode}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "not_exist__invite_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа должен быть 400\", function () {",
+									"    pm.expect(",
+									"        pm.response.status,",
+									"        \"Запрос должен вернуть ответ со статус-кодом 400\"",
+									"    ).to.be.eql(\"Bad Request\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{firstUserToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"{{notExistInviteCode}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/profile/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"key": "firstUser_phone",
+			"value": "+79833550001",
+			"type": "string"
+		},
+		{
+			"key": "secondUser_phone",
+			"value": "+79833550002",
+			"type": "string"
+		},
+		{
+			"key": "thirdUser_phone",
+			"value": "+79833550003",
+			"type": "string"
+		},
+		{
+			"key": "fourUser_phone",
+			"value": "+79833550004",
+			"type": "string"
+		},
+		{
+			"key": "confirmation_code",
+			"value": "1234",
+			"type": "string"
+		},
+		{
+			"key": "notExistInviteCode",
+			"value": "000000",
+			"type": "string"
+		},
+		{
+			"key": "firstUserToken",
+			"value": ""
+		},
+		{
+			"key": "secondUserToken",
+			"value": ""
+		},
+		{
+			"key": "thirdUserToken",
+			"value": ""
+		},
+		{
+			"key": "firstUserInviteCode",
+			"value": ""
+		},
+		{
+			"key": "fourUserToken",
+			"value": ""
+		}
+	]
+}
