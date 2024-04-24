@@ -3,7 +3,7 @@
 ## Описание
 
 API реферальной системы.
-[Доступен по ссылке](https://alexandralexandrovich.pythonanywhere.com/)
+[Доступен по ссылке](https://alexandralexandrovich.pythonanywhere.com/api/)
 
 ## Автор:
 
